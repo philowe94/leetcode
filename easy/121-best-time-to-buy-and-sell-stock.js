@@ -7,7 +7,7 @@
     let minprice = prices[0];
     let maxprofit = 0;
     
-    for(let i = 0; i < prices.length - 1; i++) {
+    for(let i = 0; i < prices.length; i++) {
         if(prices[i] < minprice) {
             minprice = prices[i];
         }
