@@ -4,6 +4,9 @@ class Solution:
 	def climbStairs(self, n: int) -> int:
 		one, two = 2,1
 
+		if n <= 3:
+			return n
+
 		for i in range(n-2):
 			temp = one
 			one = one + two
