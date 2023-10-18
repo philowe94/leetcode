@@ -1,5 +1,8 @@
 #sort an array
 #insertion sort solution
+#this solution does not pass the leetcode because insertion is too slow
+#however neetcode puts this problem under the insertion sort lesson so
+#take it up with them
 import pdb
 from typing import List
 
