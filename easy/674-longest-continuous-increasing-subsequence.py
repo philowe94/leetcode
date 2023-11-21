@@ -15,13 +15,13 @@ class Solution:
 				len += 1
 				lastnum = x
 			else:
-				longestlen = max(len, longestlen)
 				len = 1
 				lastnum = x
 
+			longestlen = max(len, longestlen)
 		
 
-		return max(len, longestlen)
+		return longestlen
 
 sol = Solution()
 print(sol.findLengthOfLCIS([3,0,6,2,4,7,0,0]))
