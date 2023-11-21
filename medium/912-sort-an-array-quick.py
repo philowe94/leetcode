@@ -1,5 +1,5 @@
 #sort an array
-#merge sort solution
+#quick sort solution
 import pdb
 from typing import List
 
@@ -47,13 +47,6 @@ class Solution:
 		# perform pivot swap
 		arr[endIdx] = arr[left]
 		arr[left] = pivot
-
-		# optimization: increment left pointer if elements after the pivot are equal
-		for i in range(left, endIdx):
-			if arr[i] == arr[i+1]:
-				left += 1
-			else:
-				break
 
 		# recursive calls
 		self.quickSort(arr, startIdx, left-1)
