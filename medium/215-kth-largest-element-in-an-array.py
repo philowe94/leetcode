@@ -1,36 +1,32 @@
 import pdb
 from typing import List
+import random
 
 class Solution:
 	def findKthLargest(self, nums: List[int], k: int) -> int:
 		
-		leftptr = 0
+		pivotidx = random.randint(0, len(nums)-1)
+		pivot = nums[pivotidx]
 
-		#put big nums on left half and small nums on right half
-		for i, x in enumerate(nums):
-			if x > nums[leftptr]:
-				nums[i] = nums[leftptr]
-				nums[leftptr] = x
-				leftptr += 1
-		
-		if leftptr == 0:
-			leftptr += 1
+		A1 = [] # big elements
+		A2 = [] # small elements
 
-		leftarr = nums[:leftptr]
-		rightarr = nums[leftptr:]
+		for i in range(0, len(nums)):
+			if nums[i] > pivot:
+				A1.append(nums[i])
+			elif nums[i] < pivot:
+				A2.append(nums[i])
 
-		if len(nums) <= 2 and k <=2:
-			return nums[k-1]
-
-		#we need the arr with the same or larger size to k
-		if leftptr >= k:
-			return self.findKthLargest(leftarr, k)
-		else:
-			return self.findKthLargest(rightarr, k-len(leftarr))
-		
+		#recursive call
+		if k <= len(A1): 
+			return self.findKthLargest(A1, k)
+		elif k > len(nums) - len(A2):
+			return self.findKthLargest(A2, k-(len(nums) - len(A2)))
+		else: 
+			return pivot
 
 arr = [3,1,2,4]
 soln = Solution()
-print(soln.findKthLargest(arr, 2))
+print(soln.findKthLargest(arr, 3))
 
 
