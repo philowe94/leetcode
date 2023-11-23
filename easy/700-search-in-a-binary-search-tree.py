@@ -11,9 +11,9 @@ class Solution:
 	def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
 		
 		if not root:
-			return null
+			return TreeNode(val)
 		
-		if val = root.val:
+		if val == root.val:
 			return root
 		elif val > root.val:
 			return searchBST(root.right, val)
