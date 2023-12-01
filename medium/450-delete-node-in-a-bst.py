@@ -38,6 +38,6 @@ class Solution:
             root.val = successor.val
 
             # delete the
-            root.right = self.deleteNode(root.right, root.val)
+            root.right = self.deleteNode(root.right, successor.val)
 
         return root
