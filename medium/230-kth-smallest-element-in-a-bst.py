@@ -9,6 +9,11 @@ class Solution:
 		stack = []
 		curr = root
 
+		# this uses inorder traversal
+		# instead of recursion, we use a stack and a while loop
+		# the stack lets us travel back up the nodes
+		# and find the kth lowest by decrementing k at each node we hit inorder
+
 		while stack or curr:
 			while curr: # get lowest while keeping track of path in stack
 				stack.append(curr)
