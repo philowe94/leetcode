@@ -11,18 +11,11 @@ class Solution:
 	def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
 		
 		if not root:
-			return None
+			return TreeNode(val)
 		
 		elif val > root.val:
-			if not root.right:
-				root.right = TreeNode(val)
-			else:
-				self.insertIntoBST(root.right, val)
+			root.right = self.insertIntoBST(root.right, val)
 		elif val < root.val:
-			if not root.left:
-				root.left = TreeNode(val)
-			else:
-				self.insertIntoBST(root.left, val)
+			root.left = self.insertIntoBST(root.left, val)
 
 		return root
-		
